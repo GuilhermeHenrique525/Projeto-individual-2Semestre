@@ -12,7 +12,7 @@ disco = []
 ram = []
 final = []
 
-headerList = ['Cpu','Disco','Ram']
+headerList = ['cpu','disco','ram']
 
 while True:
 
@@ -36,28 +36,18 @@ while True:
         writer.writerows(ram)
 
     cpuCsv = ['cpu.csv']
-    discoCsv = ['disco.csv']
-    ramCsv = ['ram.csv']
     
     for i in range(len(cpuCsv)):
         final.append([cpu[i-1],disco[i-1],ram[i-1]])
 
-    with open('./tudo.csv', 'w', newline='') as file:
+    with open('./tudoJunto.csv', 'w', newline='') as file:
         writer = csv.writer(file, delimiter=',')
         writer.writerows(final)
     
-    csvFinal = pd.read_csv("tudo.csv")
-    csvFinal.to_csv("tudoagora.csv", index=False,encoding='utf-8-sig', header=headerList)
+    csvFinal = pd.read_csv("tudoJunto.csv")
+    csvFinal.to_csv("csvFinal.csv", index=False,encoding='utf-8', header=headerList)
 
-    #csvCombined = pd.concat(map(pd.read_csv, ['cpu.csv','disco.csv','ram.csv']),ignore_index=True)
-    #csvCombined.to_csv( "combined_csv.csv", index=False, encoding='utf-8-sig', header=headerList)
-
-
-
-    print(cpu)
-    print(disco)
-    print(ram)
     print(final)
 
-    time.sleep(5)
-    os.system("clear")
+    time.sleep(4)
+    os.system("cls")
