@@ -4,9 +4,6 @@ import os
 import csv
 import pandas as pd
 
-def gigas(value):
-    return f'{value / 1024 / 1024 / 1024: .2f}'    
-
 cpu = []
 ram = []
 final = []
